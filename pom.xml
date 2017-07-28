@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.itcast.bos</groupId>
+    <artifactId>bos-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>bos-web</module>
+        <module>bos-domain</module>
+    </modules>
+    <!--统一管理依赖的版本-->
+    <properties>
+        <spring.version>3.2.12.RELEASE</spring.version>
+        <spring.datajpa.version>1.4.1.RELEASE</spring.datajpa.version>
+        <hibernate.version>3.6.10.Final</hibernate.version>
+        <slf4j.version>1.7.5</slf4j.version>
+        <c3p0.version>0.9.1.2</c3p0.version>
+        <mysql.version>5.0.8</mysql.version>
+        <struts2.version>2.3.15.3</struts2.version>
+        <servlet.version>2.5</servlet.version>
+        <jsp.version>2.0</jsp.version>
+        <junit.version>4.11</junit.version>
+        <redis.clients.jedis>2.6.2</redis.clients.jedis>
+        <spring.data.redis>1.7.1.RELEASE</spring.data.redis>
+        <!-- 反向生成实体类 -->
+        <hibernate-tools.version>3.2.4.GA</hibernate-tools.version>
+        <poi.version>3.9</poi.version>
+        <hibernate-search.version>3.4.2.Final</hibernate-search.version>
+        <shiro.version>1.2.2</shiro.version>
+        <ehcache.version>2.6.6</ehcache.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!-- spring data jpa -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>${spring.datajpa.version}</version>
+            </dependency>
+            <!-- hibernate -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+            <!-- spring  data jpa 依赖jar  -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+            <!-- 日志 -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>c3p0</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>${c3p0.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <!-- struts2 -->
+            <dependency>
+                <groupId>org.apache.struts</groupId>
+                <artifactId>struts2-core</artifactId>
+                <version>${struts2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.struts</groupId>
+                <artifactId>struts2-spring-plugin</artifactId>
+                <version>${struts2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.struts</groupId>
+                <artifactId>struts2-json-plugin</artifactId>
+                <version>${struts2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.struts</groupId>
+                <artifactId>struts2-convention-plugin</artifactId>
+                <version>${struts2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- maven 反向生成实体类 -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-tools</artifactId>
+                <version>${hibernate-tools.version}</version>
+            </dependency>
+            <!-- apache poi 解析 -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- pinyin4j -->
+            <!-- https://mvnrepository.com/artifact/com.belerweb/pinyin4j -->
+            <dependency>
+                <groupId>com.belerweb</groupId>
+                <artifactId>pinyin4j</artifactId>
+                <version>2.5.0</version>
+            </dependency>
+
+            <!-- flexjson 对象序列化 -->
+            <dependency>
+                <groupId>net.sf.flexjson</groupId>
+                <artifactId>flexjson</artifactId>
+                <version>2.0</version>
+            </dependency>
+
+            <!-- restful 客户端 -->
+            <!-- 使用CXF RS开发 -->
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+                <version>3.0.1</version>
+            </dependency>
+            <!-- 使用rs客户端  -->
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-rs-client</artifactId>
+                <version>3.0.1</version>
+            </dependency>
+            <!-- 在CXF扩展提供者，提供转换json接口  -->
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-rs-extension-providers</artifactId>
+                <version>3.0.1</version>
+            </dependency>
+            <!-- cxf 扩展提供者 转换json 默认需求一个工具包  -->
+            <dependency>
+                <groupId>org.codehaus.jettison</groupId>
+                <artifactId>jettison</artifactId>
+                <version>1.3.7</version>
+            </dependency>
+            <!-- hibernate search -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-search</artifactId>
+                <version>${hibernate-search.version}</version>
+            </dependency>
+            <!-- ik分词器 -->
+
+            <!-- shiro -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-all</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <!-- itext pdf -->
+            <dependency>
+                <groupId>com.lowagie</groupId>
+                <artifactId>itext</artifactId>
+                <version>4.2.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>itext-asian</artifactId>
+                <version>5.2.0</version>
+            </dependency>
+
+            <!-- jfreechart -->
+            <!-- https://mvnrepository.com/artifact/jfree/jfreechart -->
+            <dependency>
+                <groupId>jfree</groupId>
+                <artifactId>jfreechart</artifactId>
+                <version>1.0.9</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/jfree/jcommon -->
+            <dependency>
+                <groupId>jfree</groupId>
+                <artifactId>jcommon</artifactId>
+                <version>1.0.9</version>
+            </dependency>
+            <!-- 插件包 -->
+            <!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-jfreechart-plugin -->
+            <dependency>
+                <groupId>org.apache.struts</groupId>
+                <artifactId>struts2-jfreechart-plugin</artifactId>
+                <version>${struts2.version}</version>
+            </dependency>
+
+            <!-- jasper -->
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>2.2.0</version>
+            </dependency>
+
+            <!-- spring data redis -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version>${spring.data.redis}</version>
+            </dependency>
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+
+                <version>${redis.clients.jedis}</version>
+            </dependency>
+
+
+            <!-- jasperreport -->
+            <dependency>
+                <groupId>net.sf.jasperreports</groupId>
+                <artifactId>jasperreports</artifactId>
+                <version>5.2.0</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.lowagie</groupId>
+                        <artifactId>itext</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- spring cache  shiro  cache  缓存 -->
+            <dependency>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache-core</artifactId>
+                <version>${ehcache.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jstl</groupId>
+                <artifactId>jstl</artifactId>
+                <version>1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>taglibs</groupId>
+                <artifactId>standard</artifactId>
+                <version>1.1.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>hibernate3-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    <configuration>
+                        <components>
+                            <component>
+                                <name>hbm2hbmxml</name>
+                                <implementation>jdbcconfiguration</implementation>
+                                <outputDirectory>target/generated-resources/hibernate</outputDirectory>
+                            </component>
+                            <component>
+                                <name>hbm2java</name>
+                                <implementation>jdbcconfiguration</implementation>
+                                <outputDirectory>target/generated-sources/hibernate</outputDirectory>
+                            </component>
+                        </components>
+                        <componentProperties>
+                            <revengfile>src/main/resources/reveng.xml</revengfile>
+                            <propertyfile>src/main/resources/hibernate.properties</propertyfile>
+                            <packagename>cn.itcast.bos.domain</packagename>
+                            <jdk5>true</jdk5>
+                            <ejb3>true</ejb3>
+                        </componentProperties>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>cglib</groupId>
+                            <artifactId>cglib-nodep</artifactId>
+                            <version>2.2.2</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                            <version>${mysql.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <!-- tomcat 插件 -->
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.1</version>
+                    <configuration>
+                        <port>80</port>
+                        <!-- 浏览器访问应用名称  -->
+                        <path>/</path>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <!-- java编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+
